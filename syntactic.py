@@ -5,6 +5,13 @@ import subprocess
 import numpy as np
 from stack import Stack 
 
+bugs = '''
+	Possiveis bugs na tabela de parsing:
+	\t- cin/cout
+	\t- laços de repeticao
+
+'''
+
 # Variaveis globais
 rules = []
 rules.append([""])
@@ -157,3 +164,6 @@ if __name__ == "__main__":
 	syntatic(stack, input)
 
 	print("\n\n____Código sintaticamente correto____")
+
+
+	print(bugs)
