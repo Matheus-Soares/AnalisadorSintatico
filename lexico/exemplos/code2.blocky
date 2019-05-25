@@ -1,0 +1,40 @@
+void main {
+	
+	%*
+		Esse programa escrito em Blocky
+		solicita ao usuarioa a digitar dois
+		números e ao final indica como saída
+		qual deles é o maior
+	*%
+
+	% Declaração das variáveis
+	void maiorvalor{
+		num1, num2 : integer;
+
+		inicio
+
+		% Leitura das variáveis
+		cout << @Digite um numero@
+		cin >> num1
+		cout << @Digite outro numero@
+		cin >> num2
+
+		if(num1 > num2){
+			cout << @O maior numero e @ << num1
+		} else {
+			cout << @O maior numero e @ << num2
+		}
+
+		fim
+		
+		return ()
+	}
+
+	% Corpo do programa
+	inicio
+		
+		% Chamada de função
+		callfuncao maiorvalor
+
+	fim
+}
