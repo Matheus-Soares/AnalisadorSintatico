@@ -28,4 +28,4 @@ class Stack:
 		if(self.is_empty()):
 			raise(Empty('Stack is empty'))
 		else:
-			return self.__stack[-1]   
+			return self.__stack[-1]

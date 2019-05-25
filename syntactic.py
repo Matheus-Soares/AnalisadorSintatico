@@ -1,5 +1,7 @@
 import csv
 import sys
+import os
+import subprocess
 import numpy as np
 from stack import Stack 
 
@@ -36,13 +38,15 @@ def read_input(path):
 
 	# Lendo a arquivo de saída do analisador lexico
 	with open(path, "r") as file_:
-		file = csv.reader(file_, delimiter=',')
+		file = csv.reader(file_, delimiter='\t')
 
 		# Inserindo em ordem reversa,
 		# assim o primeiro token esta no topo da pilha
 		for line in reversed(list(file)):
 			if not line == "\n":
-				stack.push(list(map(int, line)))
+				line_ = [line[0], int(line[1]), int(line[2])]
+
+				stack.push(line_)
 
 	return stack
 
@@ -57,7 +61,7 @@ def init():
 	read_parser("table.csv")
 
 	# Le o arquivo de entrada e coloca em uma pilha
-	input_ = read_input(sys.argv[1])
+	input_ = read_input('out.csv')
 	
 	# Inicia a pilha com o item inicial
 	stack = Stack()
@@ -66,14 +70,15 @@ def init():
 
 	return stack, input_
 
-def semantic(stack, input):
-	#Algoriitmo do professor
+def syntatic(stack, input):
+	#Algoritmo descendente sem backtracking
 	X = stack.top()
-	a = input.top()[0]
+	a = input.top()[1]
+	tk = input.top()[0]
 
 	while X is not "$":
 
-		print("X = {}\ta = {}".format(X, a))
+		print("X = {}\ta = {}\t token = {}".format(X, a, tk))
 
 		# Se X é î (token de î = 17)
 		if X == 17:
@@ -93,14 +98,19 @@ def semantic(stack, input):
 				##
 				stack.pop()
 				input.pop()
-				a = input.top()[0]
+
+				if input.top() == '$' and stack.top() == '$':
+					break
+
 				X = stack.top()
+				a = input.top()[1]
+				tk = input.top()[0]
 				continue
 			else:
 				##
 				#print('4')
 				##
-				print("Erro na linha {}".format(input.top()[1]))
+				print("Erro na linha {}".format(input.top()[2]))
 				exit()
 		# Se X é não teminal
 		elif X > 50:
@@ -117,20 +127,33 @@ def semantic(stack, input):
 				for i in reversed(list(s)):
 					stack.push(i)
 				X = stack.top()
+				continue
 			except:
 				##
 				#print('7')
 				##
-				print("\nStack: {}".format(stack))
-				print("input: {}".format(input))
-				print("\nErro na linha {}".format(input.top()[1]))
+				#print("\nStack: {}".format(stack))
+				#print("input: {}".format(input))
+				print("\nErro na linha {}".format(input.top()[2]))
 				exit()
 
 
 
 # Função principal
 if __name__ == "__main__":
+
+	if len(sys.argv) < 2:
+		print("Execute com \n\t'python3 syntatic.py 'CodigoFonte.blocky'")
+		exit()
+
+	print("____Analisador Léxico____")
+	subprocess.call(['python3', 'lexico/lexical.py', sys.argv[1]])
+	
+
+	print("\n\n____Analisador Sintático____")
+
 	stack, input = init()
 
-	semantic(stack, input)
+	syntatic(stack, input)
 
+	print("\n\n____Código sintaticamente correto____")

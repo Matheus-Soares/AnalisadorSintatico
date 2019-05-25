@@ -9,11 +9,11 @@ espec = ["while", "void", "string", "return", "main", "integer", "inicio", "if",
 # Simbolos
 simbols = ["!", ">>", ">=", ">", "==", "=", "<=", "<<", "<", "++", "+", "}", "{", ";", ":", "/", ",", "*", ")", "(", "$", "!=", "--", "-"]
 
-outputFile = open("../out.csv", "w")
+outputFile = open("out.csv", "w")
 
 # Leitura da tabela de tokens
 def read_tokens():
-	with open("tokens.csv") as table_:
+	with open("lexico/tokens.csv") as table_:
 		table = csv.reader(table_, delimiter='\t')
 		for row in table:
 			tokens[row[0]] = row[1]
@@ -22,7 +22,7 @@ def read_tokens():
 # Imprime tokens
 def print_token(lex, row):
 	print("<{}, {}, {}>" .format(lex, tokens[lex], row))
-	outputFile.write(str(tokens[lex]) + ", " + str(row) + "\n")
+	outputFile.write(str(lex) + "\t" + str(tokens[lex]) + "\t" + str(row) + "\n")
 
 
 
