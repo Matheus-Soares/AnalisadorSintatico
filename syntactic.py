@@ -6,9 +6,9 @@ import numpy as np
 from stack import Stack 
 
 bugs = '''
-	Possiveis bugs na tabela de parsing:
-	\t- cin/cout
-	\t- laços de repeticao
+Possiveis bugs na tabela de parsing:
+	- cin
+	- laços de repetição
 
 '''
 
@@ -62,10 +62,10 @@ def read_input(path):
 # Le o arquivo de entrada e inicia pilha
 def init():
 	# Le as regras
-	read_rules("rules.csv")
+	read_rules("files/rules.csv")
 
 	# Le a tabela de parsing
-	read_parser("table.csv")
+	read_parser("files/table.csv")
 
 	# Le o arquivo de entrada e coloca em uma pilha
 	input_ = read_input('out.csv')
@@ -149,6 +149,8 @@ def syntatic(stack, input):
 # Função principal
 if __name__ == "__main__":
 
+	print(bugs)
+	
 	if len(sys.argv) < 2:
 		print("Execute com \n\t'python3 syntatic.py 'CodigoFonte.blocky'")
 		exit()
@@ -166,4 +168,3 @@ if __name__ == "__main__":
 	print("\n\n____Código sintaticamente correto____")
 
 
-	print(bugs)
