@@ -117,7 +117,7 @@ def syntatic(stack, input):
 				##
 				#print('4')
 				##
-				print("Erro na linha {}".format(input.top()[2]))
+				print("\nErro na linha {}".format(int(input.top()[2]) + 1))
 				exit()
 		# Se X é não teminal
 		elif X > 50:
@@ -141,7 +141,7 @@ def syntatic(stack, input):
 				##
 				#print("\nStack: {}".format(stack))
 				#print("input: {}".format(input))
-				print("\nErro na linha {}".format(input.top()[2]))
+				print("\nErro na linha {}".format(int(input.top()[2]) + 1))
 				exit()
 
 

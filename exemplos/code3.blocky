@@ -3,16 +3,16 @@ void main {
 
     inicio
 
-    cout << @Digite um nome:@
-    cin >> nome1
-    cout << @Digite outro nome:@
-    cin >> nome2
+    cout << @Digite um nome:@;
+    cin >> nome1;
+    cout << @Digite outro nome:@;
+    cin >> nome2;
 
     if(nome1 != nome2){
-        cout << @Os nomes sao diferentes@
+        cout << @Os nomes sao diferentes@;
     }else{
-        cout << @Os nomes sao iguais@
-    }
+        cout << @Os nomes sao iguais@;
+    };
 
     fim    
     

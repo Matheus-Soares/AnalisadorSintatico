@@ -13,17 +13,17 @@ void main {
 		inicio
 
 		% Leitura das variáveis
-		% cout << @Digite o menor numero@
-		% cin >> num1
-		% cout << @Digite o numero superior@
-		% cin >> num2
+		cout << @Digite o menor numero@;
+		cin >> num1;
+		cout << @Digite o numero superior@;
+		cin >> num2;
 
 		if(num1 > num2){
 			x = 1;
 		}
 		else{
 			x = 2;
-		}
+		};
 
 		fim
 		
@@ -34,7 +34,8 @@ void main {
 	inicio
 		
 		% Chamada de função
-		callfuncao iteracao
+		callfuncao iteracao;
 
 	fim
+
 }	

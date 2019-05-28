@@ -14,16 +14,16 @@ void main {
 		inicio
 
 		% Leitura das variáveis
-		cout << @Digite um numero@
-		cin >> num1
-		cout << @Digite outro numero@
-		cin >> num2
+		cout << @Digite um numero@;
+		cin >> num1;
+		cout << @Digite outro numero@;
+		cin >> num2;
 
 		if(num1 > num2){
-			cout << @O maior numero e @ << num1
+			cout << @O maior numero e @ << num1;
 		} else {
-			cout << @O maior numero e @ << num2
-		}
+			cout << @O maior numero e @ << num2;
+		};
 
 		fim
 		
@@ -34,7 +34,8 @@ void main {
 	inicio
 		
 		% Chamada de função
-		callfuncao maiorvalor
+		callfuncao maiorvalor;
 
 	fim
+	
 }
