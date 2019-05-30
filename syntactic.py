@@ -5,13 +5,6 @@ import subprocess
 import numpy as np
 from stack import Stack 
 
-bugs = '''
-Possiveis bugs na tabela de parsing:
-	- cin
-	- laços de repetição
-
-'''
-
 # Variaveis globais
 rules = []
 rules.append([""])
@@ -148,8 +141,6 @@ def syntatic(stack, input):
 
 # Função principal
 if __name__ == "__main__":
-
-	print(bugs)
 	
 	if len(sys.argv) < 2:
 		print("Execute com \n\t'python3 syntatic.py 'CodigoFonte.blocky'")
