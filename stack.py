@@ -1,31 +1,32 @@
 class Stack:
-	def __init__(self):
-		self.__stack = []
 
-	def __len__(self):
-		return len(self.__stack)
+    def __init__(self):
+        self.stack = []
 
-	def __repr__(self):
-		l = print(self.__stack)
-		return "<" + str(l) + ">"
+    def __len__(self):
+        return len(self.stack)
 
-	def __str__(self):
-		return str(self.__stack)
+    def __repr__(self):
+        l = print(self.stack)
+        return "<" + str(l) + ">"
 
-	def is_empty(self):
-		return len(self.__stack) == 0
+    def __str__(self):
+        return str(self.stack)
 
-	def push(self,element):
-		self.__stack.append(element)
+    def is_empty(self):
+        return len(self.stack) == 0
 
-	def pop(self):
-		if(self.is_empty()):
-			raise(Empty('Stack is empty')) 
-		else:
-			return self.__stack.pop()
+    def push(self, element):
+        self.stack.append(element)
 
-	def top(self):
-		if(self.is_empty()):
-			raise(Empty('Stack is empty'))
-		else:
-			return self.__stack[-1]
+    def pop(self):
+        if(self.is_empty()):
+            raise(Empty('Stack is empty'))
+        else:
+            return self.stack.pop()
+
+    def top(self):
+        if(self.is_empty()):
+            raise(Empty('Stack is empty'))
+        else:
+            return self.stack[-1]
